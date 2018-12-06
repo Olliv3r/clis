@@ -30,14 +30,14 @@ case $resp in
 	"1") echo "Termux"
 		clear
 		setterm --foreground white
-		figlet A-shell
+		figlet Shell
 		echo "$cyan Script que personaliza seu termux do seu jeito, tudo de forma automatica $white"
 		echo ''
 
 		echo "[01] Parrot"
 		echo "[02] Kali 1"
 		echo "[03] Kali 2"
-		echo "[04] Ubuntu  $cyan > $green Version: $red v2.2 $white"
+		echo "[04] Ubuntu  $cyan > $green Version: $red v2.4 $white"
 		echo "[05] Debian"
 		echo "[06] Fedora"
 		echo "[07] CentOs"
@@ -67,7 +67,7 @@ echo ""
 				read NomeDaMaquina
 				home=$HOME
 				touch $home/.bashrc
-				cat $HOME/A-shell/core/Parrot.sh > $home/.bashrc
+				cat $HOME/Shell/core/Parrot.sh > $home/.bashrc
 				sed -i "s/SeuNome/$SeuNome/g" $home/.bashrc
 				sed -i "s/NomeMachine/$NomeDaMaquina/g" $home/.bashrc
 				echo $green"Configurando..."
@@ -90,7 +90,7 @@ echo ""
 				read NomeDaMaquina
 				home=$HOME
 				touch $home/.bashrc
-				cat $HOME/A-shell/core/Kali-1.sh > $home/.bashrc
+				cat $HOME/Shell/core/Kali-1.sh > $home/.bashrc
 				sed -i "s/SeuNome/$SeuNome/g" $home/.bashrc
 				sed -i "s/NomeMachine/$NomeDaMaquina/g" $home/.bashrc
 				echo $green"Configurando..."
@@ -113,7 +113,7 @@ echo ""
 				read NomeDaMaquina
 				home=$HOME
 				touch $home/.bashrc
-				cat $HOME/A-shell/core/Kali-2.sh > $home/.bashrc
+				cat $HOME/Shell/core/Kali-2.sh > $home/.bashrc
 				sed -i "s/SeuNome/$SeuNome/g" $home/.bashrc
 				sed -i "s/NomeMachine/$NomeDaMaquina/g" $home/.bashrc
 				echo $green"Configurando..."
@@ -136,7 +136,7 @@ echo ""
 				read NomeDaMaquina
 				home=$HOME
 				touch $home/.bashrc
-				cat $HOME/A-shell/core/Kali-3.sh > $home/.bashrc
+				cat $HOME/Shell/core/Kali-3.sh > $home/.bashrc
 				sed -i "s/SeuNome/$SeuNome/g" $home/.bashrc
 				sed -i "s/NomeMachine/$NomeDaMaquina/g" $home/.bashrc
 				echo $green"Configurando..."
@@ -159,7 +159,7 @@ echo ""
 				read NomeDaMaquina
 				home=$HOME
 				touch $home/.bashrc
-				cat $HOME/A-shell/core/Ubuntu.sh > $home/.bashrc
+				cat $HOMEShell/core/Ubuntu.sh > $home/.bashrc
 				sed -i "s/SeuNome/$SeuNome/g" $home/.bashrc
 				sed -i "s/NomeMachine/$NomeDaMaquina/g" $home/.bashrc
 				echo $green"Configurando..."
@@ -182,7 +182,7 @@ echo ""
 				read NomeDaMaquina
 				home=$HOME
 				touch $home/.bashrc
-				cat $HOME/A-shell/core/Debian.sh > $home/.bashrc
+				cat $HOME/Shell/core/Debian.sh > $home/.bashrc
 				sed -i "s/SeuNome/$SeuNome/g" $home/.bashrc
 				sed -i "s/NomeMachine/$NomeDaMaquina/g" $home/.bashrc
 				echo $green"Configurando..."
@@ -205,7 +205,7 @@ echo ""
 				read NomeDaMaquina
 				home=$HOME
 				touch $home/.bashrc
-				cat $HOME/A-shell/core/Fedora.sh > $home/.bashrc
+				cat $HOME/Shell/core/Fedora.sh > $home/.bashrc
 				sed -i "s/SeuNome/$SeuNome/g" $home/.bashrc
 				sed -i "s/NomeMachine/$NomeDaMaquina/g" $home/.bashrc
 				echo $green"Configurando..."
@@ -228,7 +228,7 @@ echo ""
 				read NomeDaMaquina
 				home=$HOME
 				touch $home/.bashrc
-				cat $HOME/A-shell/core/CentOs.sh > $home/.bashrc
+				cat $HOME/Shell/core/CentOs.sh > $home/.bashrc
 				sed -i "s/SeuNome/$SeuNome/g" $home/.bashrc
 				sed -i "s/NomeMachine/$NomeDaMaquina/g" $home/.bashrc
 				echo $green"Configurando..."
@@ -251,7 +251,7 @@ echo ""
 				read NomeDaMaquina
 				home=$HOME
 				touch $home/.bashrc
-				cat $HOME/A-shell/core/OpenSuse.sh > $home/.bashrc
+				cat $HOME/Shell/core/OpenSuse.sh > $home/.bashrc
 				sed -i "s/SeuNome/$SeuNome/g" $home/.bashrc
 				sed -i "s/NomeMachine/$NomeDaMaquina/g" $home/.bashrc
 				echo $green"Configurando..."
@@ -274,7 +274,7 @@ echo ""
 				read NomeDaMaquina
 				home=$HOME
 				touch $home/.bashrc
-				cat $HOME/A-shell/core/OpenSuse-2.sh > $home/.bashrc
+				cat $HOME/Shell/core/OpenSuse-2.sh > $home/.bashrc
 				sed -i "s/SeuNome/$SeuNome/g" $home/.bashrc
 				sed -i "s/NomeMachine/$NomeDaMaquina/g" $home/.bashrc
 				echo $green"Configurando..."
@@ -298,13 +298,13 @@ echo ""
 	"2") echo "Outros OS"
 		clear
 		setterm --foreground white
-		figlet A-shell
+		figlet Shell
                 echo "$cyan Script que personaliza seu termux do seu jeito, tudo de forma automatica $white"
 		echo ''
 		echo "[01] Parrot"
 		echo "[02] Kali 1"
 		echo "[03] Kali 2"
-                echo "[04] Ubuntu  $cyan > $green Version: $red v2.2 $white"
+                echo "[04] Ubuntu  $cyan > $green Version: $red v2.4 $white"
                 echo "[05] Debian"
                 echo "[06] Fedora"
                 echo "[07] CentOs"
@@ -315,7 +315,7 @@ echo ""
 
                 function menu_return() {
                 echo $green"Returning..."
-                bash /root/A-shell/a-shell.sh
+                bash /root/Shell/hell/shell.sh
                 }
 
                 menu() {
@@ -334,7 +334,7 @@ echo ""
                                 read NomeDaMaquina
 
                                 touch /home/.bashrc
-				cat /root/A-shell/core/Parrot.sh > /home/.bashrc
+				cat /root/Shell/core/Parrot.sh > /home/.bashrc
                                 sed -i "s/SeuNome/$SeuNome/g" /root/.bashrc
                                 sed -i "s/NomeMachine/$NomeDaMaquina/g" /home/.bashrc
                                 echo $green"Configurando..."
@@ -358,7 +358,7 @@ echo ""
                                 
                                 touch /home/.bashrc
                                 
-				cat /root/A-shell/core/Kali-1.sh > /home/.bashrc
+				cat /root/Shell/core/Kali-1.sh > /home/.bashrc
                                 sed -i "s/SeuNome/$SeuNome/g" /home/.bashrc
                                 sed -i "s/NomeMachine/$NomeDaMaquina/g" /home/.bashrc
                                 echo $green"Configurando..."
@@ -381,7 +381,7 @@ echo ""
                                 
                                 touch /home/.bashrc
 
-                                cat /root/A-shell/core/Kali-2.sh > /home/.bashrc
+                                cat /root/Shell/core/Kali-2.sh > /home/.bashrc
                                 sed -i "s/SeuNome/$SeuNome/g" /home/.bashrc
                                 sed -i "s/NomeMachine/$NomeDaMaquina/g"  /home/.bashrc
                                 echo $green"Configurando..."
@@ -405,7 +405,7 @@ echo ""
                                 
                                 touch /home/.bashrc
 
-                                cat /root/A-shell/core/Kali-3.sh > /home/.bashrc
+                                cat /root/Shell/core/Kali-3.sh > /home/.bashrc
                                 sed -i "s/SeuNome/$SeuNome/g" /root/.bashrc
                                 sed -i "s/NomeMachine/$NomeDaMaquina/g" /home/.bashrc
                                 echo $green"Configurando..."
@@ -429,7 +429,7 @@ echo ""
                         
                                 touch /home/.bashrc
 
-                                cat /root/A-shell/core/Ubuntu.sh > /home/.bashrc
+                                cat /root/Shell/core/Ubuntu.sh > /home/.bashrc
                                 sed -i "s/SeuNome/$SeuNome/g" /home/.bashrc
                                 sed -i "s/NomeMachine/$NomeDaMaquina/g" /home/.bashrc
                                 echo $green"Configurando..."
@@ -453,7 +453,7 @@ echo ""
                                 
                                 touch /home/.bashrc
 
-                                cat /root/A-shell/core/Debian.sh > /home/.bashrc
+                                cat /root/Shell/core/Debian.sh > /home/.bashrc
                                 sed -i "s/SeuNome/$SeuNome/g" /home/.bashrc
                                 sed -i "s/NomeMachine/$NomeDaMaquina/g" /home/.bashrc
                                 echo $green"Configurando..."
@@ -477,7 +477,7 @@ echo ""
                                 
                                 touch /home/.bashrc
 
-                                cat /root/A-shell/core/Fedora.sh > /home/.bashrc
+                                cat /root/Shell/core/Fedora.sh > /home/.bashrc
                                 sed -i "s/SeuNome/$SeuNome/g" /home/.bashrc
                                 sed -i "s/NomeMachine/$NomeDaMaquina/g" /home/.bashrc
                                 echo $green"Configurando..."
@@ -501,7 +501,7 @@ echo ""
                         
                                 touch /home/.bashrc
 
-                                cat /root/A-shell/core/CentOs.sh > /home/.bashrc
+                                cat /root/Shell/core/CentOs.sh > /home/.bashrc
                                 sed -i "s/SeuNome/$SeuNome/g" /home/.bashrc
                                 sed -i "s/NomeMachine/$NomeDaMaquina/g" /home/.bashrc
                                 echo $green"Configurando..."
@@ -525,7 +525,7 @@ echo ""
                                 
                                 touch /home/.bashrc
                                 
-				cat /root/A-shell/core/OpenSuse.sh > /home/.bashrc
+				cat /root/Shell/core/OpenSuse.sh > /home/.bashrc
                                 sed -i "s/SeuNome/$SeuNome/g" /home/.bashrc
                                 sed -i "s/NomeMachine/$NomeDaMaquina/g" /home/.bashrc
                                 echo $green"Configurando..."
@@ -549,7 +549,7 @@ echo ""
 
                                 touch /home/.bashrc
 
-				cat /root/A-shell/core/Kali-Default.sh > /home/.bashrc
+				cat /root/Shell/core/Kali-Default.sh > /home/.bashrc
                                 sed -i "s/SeuNome/$SeuNome/g" /home/.bashrc
                                 sed -i "s/NomeMachine/$NomeDaMaquina/g" /home/.bashrc
                                 echo $green"Configurando..."
