@@ -48,7 +48,7 @@ echo ""
 
 		function menu_return() {
 		echo $green"Returning..."
-		bash $HOME/A-shell/a-shell.sh
+		bash $HOME/Shell/shell.sh
 		}
 
 		menu() {
