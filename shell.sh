@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/sh
 # PS1 variavel de ambiente
 # Autor: olive > canal >> tio olive
 
@@ -11,11 +11,12 @@ white=`setterm --foreground white`
 clear
 
 menuOs() {
-	setterm --foreground white
-	echo "--------------"
-	echo "[1] Termux OS"
-	echo "[2] Outros Sistemas Linux"
-	echo "--------------"
+	setterm --foreground blue
+	figlet Shell
+	echo "	\033[01;94m'---------------'"
+	echo " 	\033[01;94m' \033[01;92m{\033[0m1\033[01;92m} \033[01;91mTermux OS \033[01;94m'"
+	echo "	\033[01;94m' \033[01;92m{\033[0m2\033[01;92m} \033[01;91mOutros OS \033[01;94m'"
+	echo "  \033[01;94m	'---------------'"
 }
 
 menuOs
@@ -34,15 +35,15 @@ case $resp in
 		echo "$cyan Script que personaliza seu termux do seu jeito, tudo de forma automatica $white"
 		echo ''
 
-		echo "[01] Parrot"
-		echo "[02] Kali 1"
-		echo "[03] Kali 2"
-		echo "[04] Ubuntu  $cyan > $green Version: $red v2.4 $white"
-		echo "[05] Debian"
-		echo "[06] Fedora"
-		echo "[07] CentOs"
-		echo "[08] OpenSuse 1"
-		echo "[09] OpenSuse 2"
+		echo "{01} Parrot"
+		echo "{02} Kali 1"
+		echo "{03} Kali 2"
+		echo "{04} Ubuntu  $cyan > $green Version: $red v2.5 $white"
+		echo "{05} Debian"
+		echo "{06} Fedora"
+		echo "{07} CentOs"
+		echo "{08} OpenSuse 1"
+		echo "{09} OpenSuse 2"
 		#echo "$white[$blue<11$blue>$white]$red Kali Oficial"
 echo ""
 
@@ -301,16 +302,16 @@ echo ""
 		figlet Shell
                 echo "$cyan Script que personaliza seu termux do seu jeito, tudo de forma automatica $white"
 		echo ''
-		echo "[01] Parrot"
-		echo "[02] Kali 1"
-		echo "[03] Kali 2"
-                echo "[04] Ubuntu  $cyan > $green Version: $red v2.4 $white"
-                echo "[05] Debian"
-                echo "[06] Fedora"
-                echo "[07] CentOs"
-                echo "[08] OpenSuse 1"
-		echo "[09] OpenSuse 2"
-		echo "[10] Kali Oficial"
+		echo "{01} Parrot"
+		echo "{02} Kali 1"
+		echo "{03} Kali 2"
+                echo "{04} Ubuntu  $cyan > $green Version: $red v2.5 $white"
+                echo "{05} Debian"
+                echo "{06} Fedora"
+                echo "{07} CentOs"
+                echo "{08} OpenSuse 1"
+		echo "{09} OpenSuse 2"
+		echo "{10} Kali Oficial"
 echo ""
 
                 function menu_return() {
