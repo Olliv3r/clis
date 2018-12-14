@@ -13,10 +13,11 @@ clear
 menuOs() {
 	setterm --foreground blue
 	figlet Shell
-	echo "	$blue'-------------------'"
-	echo " 	$blue' $green{$white 1 $green} $red Termux OS $blue '"
-	echo "	$blue' $green{$white 2 $green} $red Outros OS $blue '"
-	echo "  $blue	'-------------------'"
+	echo "	$blue '--------------------'"
+	echo " 	$blue ' $green{$white 1 $green} $red Termux OS $blue  '"
+	echo "	$blue ' $green{$white 2 $green} $red Outros OS $blue  '"
+	echo "$blue	 ' $green{$white 3 $green} $red Customizados$blue'"
+	echo "  $blue	 '--------------------'"
 }
 
 menuOs
@@ -292,6 +293,8 @@ case $resp in
 			"sair" | "exit") echo ''
 				exit
 				logout;;
+			'return' | 'r')
+				./shell.sh;;
 			*)
 		esac;;
 
@@ -570,8 +573,12 @@ case $resp in
                         "sair" | "exit") echo ''
                                 exit
                                 logout;;
+			'return' | 'r')
+				./shell.sh;;
                         *)
                 esac;;
 
+	'03' | '3')
+		sh ./.custom.sh;;
 	*)
 esac
