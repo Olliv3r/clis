@@ -183,7 +183,9 @@ case $r in
 		msg
 		enter_return;;
 	'return' | 'r')
-		./shell.sh;;
+		setterm --foreground white
+		./shell.sh
+		setterm --foreground white;;
 
 	*)
 esac

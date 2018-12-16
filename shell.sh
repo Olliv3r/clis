@@ -579,6 +579,7 @@ case $resp in
                 esac;;
 
 	'03' | '3')
-		sh ./.custom.sh;;
+		sh ./.custom.sh
+		setterm --foreground white;;
 	*)
 esac
