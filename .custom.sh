@@ -1,9 +1,10 @@
 #!/bin/sh
 
 custom() {
-	figlet Custom-t
+	sh core/banner-2.sh
 }
 main() {
+	custom
 	echo "
 	\033[00;96m[\033[02;94m001\033[00;96m] \033[02;96m->\033[0m White\033[02;92m|\033[01;91m\033[0m\033[01;91mRed
 	\033[00;96m[\033[02;94m002\033[00;96m] \033[02;96m->\033[0m White\033[02;92m|\033[01;92mGreen

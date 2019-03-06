@@ -11,8 +11,8 @@ white=`setterm --foreground white`
 clear
 
 menuOs() {
-	setterm --foreground blue
-	figlet Shell
+	setterm --foreground white
+	sh core/banner.sh
 	echo "	$blue '--------------------'"
 	echo " 	$blue ' $green{$white 1 $green} $red Termux OS $blue  '"
 	echo "	$blue ' $green{$white 2 $green} $red Outros OS $blue  '"
@@ -32,7 +32,7 @@ case $resp in
 	"1") echo "Termux"
 		clear
 		setterm --foreground white
-		figlet Shell
+		sh core/banner-2.sh
 		echo "$cyan Script que personaliza seu termux do seu jeito, tudo de forma automatica $white"
 		echo ''
 
@@ -301,7 +301,7 @@ case $resp in
 	"2") echo "Outros OS"
 		clear
 		setterm --foreground white
-		figlet Shell
+		sh core/banner-2.sh
                 echo "$cyan Script que personaliza seu termux do seu jeito, tudo de forma automatica $white"
 		echo ''
 		echo "$green{$white 01 $green}$red Parrot"
