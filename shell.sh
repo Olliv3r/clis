@@ -1,5 +1,5 @@
-#!/bin/bash
-# PS1 variavel de ambiente
+#!/usr/bin/env bash
+# Customização do pront do shell
 # Autor: olive > canal >> tio olive
 
 red=`setterm --foreground red`
@@ -13,40 +13,30 @@ clear
 menuOs() {
 	setterm --foreground white
 	sh core/banner.sh
-	echo "	$blue '--------------------'"
-	echo " 	$blue ' $green{$white 1 $green} $red Termux OS $blue  '"
-	echo "	$blue ' $green{$white 2 $green} $red Outros OS $blue  '"
-	echo "$blue	 ' $green{$white 3 $green} $red Customizados$blue'"
-	echo "  $blue	 '--------------------'"
+	echo -e "		\E[31;1m[\E[36;1mTermux\E[31;1m]"
+	echo -e "		\E[31;1m[\E[36;1mOutros\E[31;1m]"
+	echo -e "		\E[31;1m[\E[36;1mCustomizado\E[31;1m]"
+	echo ''
 }
 
+while true;do
 menuOs
 
-echo ''
+echo -e '\n'
 
-echo "Qual Seu Systema Os [+]"
-echo ''
+echo -n -e "\E[34;1m--[\E[31;1mQual Seu Sistema\E[34;1m]--\E[36;1m[\E[32;1m+\E[36;1m] \E[m: "
 read resp
 
 case $resp in
 	"1") echo "Termux"
+		
 		clear
 		setterm --foreground white
 		sh core/banner-2.sh
-		echo "$cyan Script que personaliza seu termux do seu jeito, tudo de forma automatica $white"
 		echo ''
 
-		echo "$green{$white 01 $green}$red Parrot"
-		echo "$green{$white 02 $green}$red Kali 1"
-		echo "$green{$white 03 $green}$red Kali 2"
-		echo "$green{$white 04 $green}$red Ubuntu  $cyan > $green Version: $red v2.6 $white"
-		echo "$green{$white 05 $green}$red Debian"
-		echo "$green{$white 06 $green}$red Fedora"
-		echo "$green{$white 07 $green}$red CentOs"
-		echo "$green{$white 08 $green}$red OpenSuse 1"
-		echo "$green{$white 09 $green}$red OpenSuse 2"
-		echo ""
-
+		bash core/menu-1.sh
+		
 		function menu_return() {
 			echo $green"Returning..."
 			bash $HOME/Shell/shell.sh
@@ -83,7 +73,7 @@ case $resp in
 						echo by;;
 					*)
 				esac;;
-
+		
 			"2" | "02") echo ''
 				echo -n $green"SeuNome: "$red
 				read SeuNome
@@ -294,27 +284,18 @@ case $resp in
 				exit
 				logout;;
 			'return' | 'r')
+		
 				./shell.sh;;
+
 			*)
 		esac;;
 
 	"2") echo "Outros OS"
+	
 		clear
 		setterm --foreground white
 		sh core/banner-2.sh
-                echo "$cyan Script que personaliza seu termux do seu jeito, tudo de forma automatica $white"
-		echo ''
-		echo "$green{$white 01 $green}$red Parrot"
-		echo "$green{$white 02 $green}$red Kali 1"
-		echo "$green{$white 03 $green}$red Kali 2"
-                echo "$green{$white 04 $green}$red Ubuntu  $cyan > $green Version: $red v2.6 $white"
-                echo "$green{$white 05 $green}$red Debian"
-                echo "$green{$white 06 $green}$red Fedora"
-                echo "$green{$white 07 $green}$red CentOs"
-                echo "$green{$white 08 $green}$red OpenSuse 1"
-		echo "$green{$white 09 $green}$red OpenSuse 2"
-		echo "$green{$white 10 $green}$red Kali Oficial"
-		echo ""
+		bash core/menu-2.sh
 
                 function menu_return() {
 			echo $green"Returning..."
@@ -328,7 +309,7 @@ case $resp in
 
                 echo -n $blue"A-shell> "$red
 		read resp
-
+	
 		case $resp in
                         "1" | "01") echo ''
                         	echo -n $green"SeuNome: "$red
@@ -574,12 +555,16 @@ case $resp in
                                 exit
                                 logout;;
 			'return' | 'r')
+				
 				./shell.sh;;
-                        *)
+			*)
                 esac;;
 
 	'03' | '3')
+		while true;do
 		sh ./.custom.sh
+		done
 		setterm --foreground white;;
 	*)
 esac
+done
