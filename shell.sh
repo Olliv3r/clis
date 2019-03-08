@@ -13,6 +13,7 @@ clear
 menuOs() {
 	setterm --foreground white
 	sh core/banner.sh
+	echo ''
 	echo -e "\E[m		1 -> \E[31;1m[\E[36;1mTermux\E[31;1m]"
 	echo -e "\E[m		2 -> \E[31;1m[\E[36;1mOutros\E[31;1m]"
 	echo -e "\E[m		3 -> \E[31;1m[\E[36;1mCustom\E[31;1m]"
