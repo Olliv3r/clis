@@ -18,7 +18,7 @@ menuOs() {
 	echo -e "\E[m		2 -> \E[31;1m[\E[36;1mOutros\E[31;1m]"
 	echo -e "\E[m		3 -> \E[31;1m[\E[36;1mCustom\E[31;1m]"
 	echo ''
-	echo '		V1.2'
+	echo '		V1.4'
 }
 
 while true;do
