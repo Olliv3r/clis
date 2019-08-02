@@ -129,7 +129,7 @@ case $resp in
 				read NomeDaMaquina
 				home=$HOME
 				touch $home/.bashrc
-				cat $HOME/Shell/core/Kali-3.sh > $home/.bashrc
+				cat $HOME/Shell/core/Ubuntu.sh > $home/.bashrc
 				sed -i "s/SeuNome/$SeuNome/g" $home/.bashrc
 				sed -i "s/NomeMachine/$NomeDaMaquina/g" $home/.bashrc
 				echo $green"Configurando..."
@@ -152,7 +152,7 @@ case $resp in
 				read NomeDaMaquina
 				home=$HOME
 				touch $home/.bashrc
-				cat $HOMEShell/core/Ubuntu.sh > $home/.bashrc
+				cat $HOME/Shell/core/Debian.sh > $home/.bashrc
 				sed -i "s/SeuNome/$SeuNome/g" $home/.bashrc
 				sed -i "s/NomeMachine/$NomeDaMaquina/g" $home/.bashrc
 				echo $green"Configurando..."
