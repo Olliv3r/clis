@@ -301,7 +301,7 @@ case $resp in
 
                 function menu_return() {
 			echo $green"Returning..."
-			bash /root/Shell/hell/shell.sh
+			bash ~/Shell/hell/shell.sh
                 }
 
                 menu() {
@@ -319,10 +319,10 @@ case $resp in
                         	echo -n $green"NomeDaMaquina: "$red
                                 read NomeDaMaquina
 
-                                touch /home/.bashrc
-				cat /root/Shell/core/Parrot.sh > /home/.bashrc
-                                sed -i "s/SeuNome/$SeuNome/g" /root/.bashrc
-                                sed -i "s/NomeMachine/$NomeDaMaquina/g" /home/.bashrc
+                                touch ~/.bashrc
+				cat ~/Shell/core/Parrot.sh > ~/.bashrc
+                                sed -i "s/SeuNome/$SeuNome/g" ~/.bashrc
+                                sed -i "s/NomeMachine/$NomeDaMaquina/g" ~/.bashrc
                                 echo $green"Configurando..."
                                 sleep 2
                                 echo $yellow"Abra uma nova aba do termux para visualizar sua nova configuracao da variavel de ambiente PS1 "
@@ -342,11 +342,11 @@ case $resp in
                                 echo -n $green"NomeDaMaquina: "$red
                                 read NomeDaMaquina
                                 
-                                touch /home/.bashrc
+                                touch ~/.bashrc
                                 
-				cat /root/Shell/core/Kali-1.sh > /home/.bashrc
-                                sed -i "s/SeuNome/$SeuNome/g" /home/.bashrc
-                                sed -i "s/NomeMachine/$NomeDaMaquina/g" /home/.bashrc
+				cat /root/Shell/core/Kali-1.sh > ~/.bashrc
+                                sed -i "s/SeuNome/$SeuNome/g" ~/.bashrc
+                                sed -i "s/NomeMachine/$NomeDaMaquina/g" ~/.bashrc
                                 echo $green"Configurando..."
                                 sleep 2
                                 echo $yellow"Abra uma nova aba do termux para visualizar sua nova configuracao da variavel de ambiente PS1 "
@@ -365,11 +365,11 @@ case $resp in
                                 echo -n $green"NomeDaMaquina: "$red
                                 read NomeDaMaquina
                                 
-                                touch /home/.bashrc
+                                touch ~/.bashrc
 
-                                cat /root/Shell/core/Kali-2.sh > /home/.bashrc
-                                sed -i "s/SeuNome/$SeuNome/g" /home/.bashrc
-                                sed -i "s/NomeMachine/$NomeDaMaquina/g"  /home/.bashrc
+                                cat ~/Shell/core/Kali-2.sh > ~/.bashrc
+                                sed -i "s/SeuNome/$SeuNome/g" ~/.bashrc
+                                sed -i "s/NomeMachine/$NomeDaMaquina/g"  ~/.bashrc
                                 echo $green"Configurando..."
                                 sleep 2
                                 echo $yellow"Abra uma nova aba do termux para visualizar sua nova configuracao da variavel de ambiente PS1 "
@@ -389,11 +389,11 @@ case $resp in
                                 echo -n $green"NomeDaMaquina: "$red
                                 read NomeDaMaquina
                                 
-                                touch /home/.bashrc
+                                touch ~/.bashrc
 
-                                cat /root/Shell/core/Kali-3.sh > /home/.bashrc
-                                sed -i "s/SeuNome/$SeuNome/g" /root/.bashrc
-                                sed -i "s/NomeMachine/$NomeDaMaquina/g" /home/.bashrc
+                                cat ~/Shell/core/Kali-3.sh > ~/.bashrc
+                                sed -i "s/SeuNome/$SeuNome/g" ~/.bashrc
+                                sed -i "s/NomeMachine/$NomeDaMaquina/g" ~/.bashrc
                                 echo $green"Configurando..."
                                 sleep 2
                                 echo $yellow"Abra uma nova aba do termux para visualizar sua nova configuracao da variavel de ambiente PS1 "
@@ -413,11 +413,11 @@ case $resp in
                                 echo -n $green"NomeDaMaquina: "$red
                                 read NomeDaMaquina
                         
-                                touch /home/.bashrc
+                                touch ~/.bashrc
 
-                                cat /root/Shell/core/Ubuntu.sh > /home/.bashrc
-                                sed -i "s/SeuNome/$SeuNome/g" /home/.bashrc
-                                sed -i "s/NomeMachine/$NomeDaMaquina/g" /home/.bashrc
+                                cat ~/Shell/core/Ubuntu.sh > ~/.bashrc
+                                sed -i "s/SeuNome/$SeuNome/g" ~/.bashrc
+                                sed -i "s/NomeMachine/$NomeDaMaquina/g" ~/.bashrc
                                 echo $green"Configurando..."
                                 sleep 2
                                 echo $yellow"Abra uma nova aba do termux para visualizar sua nova configuracao da variavel de ambiente PS1 "
@@ -437,11 +437,11 @@ case $resp in
                                 echo -n $green"NomeDaMaquina: "$red
                                 read NomeDaMaquina
                                 
-                                touch /home/.bashrc
+                                touch ~/.bashrc
 
-                                cat /root/Shell/core/Debian.sh > /home/.bashrc
-                                sed -i "s/SeuNome/$SeuNome/g" /home/.bashrc
-                                sed -i "s/NomeMachine/$NomeDaMaquina/g" /home/.bashrc
+                                cat ~/Shell/core/Debian.sh > ~/.bashrc
+                                sed -i "s/SeuNome/$SeuNome/g" ~/.bashrc
+                                sed -i "s/NomeMachine/$NomeDaMaquina/g" ~/.bashrc
                                 echo $green"Configurando..."
                                 sleep 2
                                 echo $yellow"Abra uma nova aba do termux para visualizar sua nova configuracao da variavel de ambiente PS1 "
@@ -461,11 +461,11 @@ case $resp in
                                 echo -n $green"NomeDaMaquina: "$red
                                 read NomeDaMaquina
                                 
-                                touch /home/.bashrc
+                                touch ~/.bashrc
 
-                                cat /root/Shell/core/Fedora.sh > /home/.bashrc
-                                sed -i "s/SeuNome/$SeuNome/g" /home/.bashrc
-                                sed -i "s/NomeMachine/$NomeDaMaquina/g" /home/.bashrc
+                                cat ~/Shell/core/Fedora.sh > ~/.bashrc
+                                sed -i "s/SeuNome/$SeuNome/g" ~/.bashrc
+                                sed -i "s/NomeMachine/$NomeDaMaquina/g" ~/.bashrc
                                 echo $green"Configurando..."
                                 sleep 2
                                 echo $yellow"Abra uma nova aba do termux para visualizar sua nova configuracao da variavel de ambiente PS1 "
@@ -485,11 +485,11 @@ case $resp in
                                 echo -n $green"NomeDaMaquina: "$red
                                 read NomeDaMaquina
                         
-                                touch /home/.bashrc
+				touch ~/.bashrc
 
-                                cat /root/Shell/core/CentOs.sh > /home/.bashrc
-                                sed -i "s/SeuNome/$SeuNome/g" /home/.bashrc
-                                sed -i "s/NomeMachine/$NomeDaMaquina/g" /home/.bashrc
+                                cat ~/Shell/core/CentOs.sh > ~/.bashrc
+                                sed -i "s/SeuNome/$SeuNome/g" ~/.bashrc
+                                sed -i "s/NomeMachine/$NomeDaMaquina/g" ~/.bashrc
                                 echo $green"Configurando..."
                                 sleep 2
                                 echo $yellow"Abra uma nova aba do termux para visualizar sua nova configuracao da variavel de ambiente PS1 "
@@ -509,11 +509,11 @@ case $resp in
                                 echo -n $green"NomeDaMaquina: "$red
                                 read NomeDaMaquina
                                 
-                                touch /home/.bashrc
-                                
-				cat /root/Shell/core/OpenSuse.sh > /home/.bashrc
-                                sed -i "s/SeuNome/$SeuNome/g" /home/.bashrc
-                                sed -i "s/NomeMachine/$NomeDaMaquina/g" /home/.bashrc
+                                touch ~/.bashrc
+                                #aqui
+				cat ~/Shell/core/OpenSuse.sh > ~/.bashrc
+                                sed -i "s/SeuNome/$SeuNome/g" ~/.bashrc
+                                sed -i "s/NomeMachine/$NomeDaMaquina/g" ~/.bashrc
                                 echo $green"Configurando..."
                                 sleep 2
                                 echo $yellow"Abra uma nova aba do termux para visualizar sua nova configuracao da variavel de ambiente PS1 "
@@ -532,15 +532,26 @@ case $resp in
                                 read SeuNome
                                 echo -n $green"NomeDaMaquina: "$red
                                 read NomeDaMaquina
+				
+				if test -e ~/.profile ; then
 
-                                touch /home/.bashrc
-
-				cat /root/Shell/core/Kali-Default.sh > /home/.bashrc
-                                sed -i "s/SeuNome/$SeuNome/g" /home/.bashrc
-                                sed -i "s/NomeMachine/$NomeDaMaquina/g" /home/.bashrc
+				cat ~/Shell/core/Kali-Default.sh >> ~/.profile
+                                sed -i "s/SeuNome/$SeuNome/g" ~/.profile
+                                sed -i "s/NomeMachine/$NomeDaMaquina/g" ~/.profile
                                 echo $green"Configurando..."
                                 sleep 2
      	                           echo $yellow"Abra uma nova aba do termux para visualizar sua nova configuracao da variavel de ambiente PS1 "
+				
+				elif ! -e ~/.profile ; then
+					touch ~/.profile
+					cat ~/Shell/core/Kali-Default.sh >> ~/.profile
+					sed -i "s/SeuNome/$SeuNome/g" ~/.profile
+					sed -i "s/NomeMachine/$NomeDaMaquina/g" ~/.profile
+					echo $green"Configurando..."
+					sleep 2
+					echo $yellow"Abra uma nova aba do termux para visualizar sua nova configuracao da variavel de ambiente PS1 "
+				fi
+
                                 menu
                                 case $resp in
                                         "return" | "r") echo ''
