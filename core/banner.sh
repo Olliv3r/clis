@@ -1,6 +1,4 @@
 cat <<banner
-
-		By> olive
 	  ██████  ██░ ██ ▓█████  ██▓     ██▓
         ▒██    ▒ ▓██░ ██▒▓█   ▀ ▓██▒    ▓██▒
 	░ ▓██▄   ▒██▀▀██░▒███   ▒██░    ▒██░
@@ -10,5 +8,4 @@ cat <<banner
 	░ ░▒  ░ ░ ▒ ░▒░ ░ ░ ░  ░░ ░ ▒  ░░ ░ ▒  ░
 	░  ░  ░   ░  ░░ ░   ░     ░ ░     ░ ░
 	      ░   ░  ░  ░   ░  ░    ░  ░    ░  ░
- 	Customize o shell do servidor linux (fast)
 banner

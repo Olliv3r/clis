@@ -11,32 +11,37 @@ white=`setterm --foreground white`
 clear
 
 menuOs() {
+	clear
 	setterm --foreground white
 	sh core/banner.sh
 	echo ''
-	echo -e "\E[m		1 -> \E[31;1m[\E[36;1mTermux\E[31;1m]"
-	echo -e "\E[m		2 -> \E[31;1m[\E[36;1mOutros\E[31;1m]"
-	echo -e "\E[m		3 -> \E[31;1m[\E[36;1mCustom\E[31;1m]"
-	echo ''
-	echo '		V1.4'
+	echo -e "\t\t1 = System Termux OS"
+	echo -e "\t\t2 = Others"
+	echo -e "\t\t3 = Custom"
+	echo -ne "\n\t\tby: olive. v1.5"
 }
 
+main() {
+# while 1
 while true;do
 menuOs
 
 echo -e '\n'
 
-echo -n -e "\E[34;1m--[\E[31;1mQual Seu Sistema\E[34;1m]--\E[36;1m[\E[32;1m+\E[36;1m] \E[m: "
+echo -ne "\033[01;92mГ\033[01;91mShell\033[0m_\033[01;96m>> \033[0m"
 read resp
 
 case $resp in
 	"1") echo "Termux"
-		
+
+		while true;do
 		clear
 		setterm --foreground white
 		sh core/banner-2.sh
 		echo ''
-
+		
+		# while 2
+	
 		bash core/menu-1.sh
 		
 		function menu_return() {
@@ -45,11 +50,11 @@ case $resp in
 		}
 
 		menu() {
-			echo -n $blue"Shell> "$yellow
+			echo -ne "\033[01;92mГ\033[01;91mShell\033[0m_\033[01;96m>> \033[0m"
 			read resp
 		}
 
-		echo -n $blue"shell> "$red
+		echo -ne "\033[01;92mГ\033[01;91mShell\033[0m_\033[01;96m>> \033[0m"
 		read resp
 
 		case $resp in
@@ -285,15 +290,16 @@ case $resp in
 			"sair" | "exit") echo ''
 				exit
 				logout;;
-			'return' | 'r')
+			'return' | 'return')
 		
 				./shell.sh;;
 
 			*)
-		esac;;
-
-	"2") echo "Outros OS"
+		esac
+	done;;
 	
+	"2") echo "Outros OS"
+		while true;do
 		clear
 		setterm --foreground white
 		sh core/banner-2.sh
@@ -305,11 +311,11 @@ case $resp in
                 }
 
                 menu() {
-                        echo -n $blue"Ps1> "$yellow
+                        echo -ne "\033[01;92mГ\033[01;91mShell\033[0m_\033[01;96m>> \033[0m"
                         read resp
                 }
 
-                echo -n $blue"A-shell> "$red
+                echo -ne "\033[01;92mГ\033[01;91mShell\033[0m_\033[01;96m>> \033[0m"
 		read resp
 	
 		case $resp in
@@ -571,13 +577,16 @@ case $resp in
 				
 				./shell.sh;;
 			*)
-                esac;;
+                esac
+	done;;
 
 	'03' | '3')
 		while true;do
-		sh ./.custom.sh
+		bash ./.custom.sh
 		done
 		setterm --foreground white;;
 	*)
 esac
 done
+}
+main
