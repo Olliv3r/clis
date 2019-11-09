@@ -180,7 +180,7 @@ case $resp in
 				read NomeDaMaquina
 				home=$HOME
 				touch $home/.bashrc
-				cat $HOME/Shell/core/Debian.sh > $home/.bashrc
+				cat $HOME/Shell/core/Fedora.sh > $home/.bashrc
 				sed -i "s/SeuNome/$SeuNome/g" $home/.bashrc
 				sed -i "s/NomeMachine/$NomeDaMaquina/g" $home/.bashrc
 				echo $green"Configurando..."
@@ -203,7 +203,7 @@ case $resp in
 				read NomeDaMaquina
 				home=$HOME
 				touch $home/.bashrc
-				cat $HOME/Shell/core/Fedora.sh > $home/.bashrc
+				cat $HOME/Shell/core/CentOs.sh > $home/.bashrc
 				sed -i "s/SeuNome/$SeuNome/g" $home/.bashrc
 				sed -i "s/NomeMachine/$NomeDaMaquina/g" $home/.bashrc
 				echo $green"Configurando..."
@@ -226,7 +226,7 @@ case $resp in
 				read NomeDaMaquina
 				home=$HOME
 				touch $home/.bashrc
-				cat $HOME/Shell/core/CentOs.sh > $home/.bashrc
+				cat $HOME/Shell/core/OpenSuse.sh > $home/.bashrc
 				sed -i "s/SeuNome/$SeuNome/g" $home/.bashrc
 				sed -i "s/NomeMachine/$NomeDaMaquina/g" $home/.bashrc
 				echo $green"Configurando..."
@@ -249,7 +249,7 @@ case $resp in
 				read NomeDaMaquina
 				home=$HOME
 				touch $home/.bashrc
-				cat $HOME/Shell/core/OpenSuse.sh > $home/.bashrc
+				cat $HOME/Shell/core/OpenSuse-2.sh > $home/.bashrc
 				sed -i "s/SeuNome/$SeuNome/g" $home/.bashrc
 				sed -i "s/NomeMachine/$NomeDaMaquina/g" $home/.bashrc
 				echo $green"Configurando..."
@@ -265,6 +265,7 @@ case $resp in
 					*)
 				esac;;
 
+
 			"10") echo ''
 				echo -n $green"SeuNome: "$red
 				read SeuNome
@@ -272,7 +273,7 @@ case $resp in
 				read NomeDaMaquina
 				home=$HOME
 				touch $home/.bashrc
-				cat $HOME/Shell/core/OpenSuse-2.sh > $home/.bashrc
+				cat $HOME/Shell/core/Archlinux.sh > $home/.bashrc
 				sed -i "s/SeuNome/$SeuNome/g" $home/.bashrc
 				sed -i "s/NomeMachine/$NomeDaMaquina/g" $home/.bashrc
 				echo $green"Configurando..."

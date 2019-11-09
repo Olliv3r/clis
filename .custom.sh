@@ -1,11 +1,11 @@
 #!/bin/sh
 
 custom() {
-	sh core/banner-2.sh
+	bash core/banner-2.sh
 }
 main() {
 	custom
-	echo "
+	echo -e "
 	\033[00;96m[\033[02;94m001\033[00;96m] \033[02;96m->\033[0m White\033[02;92m|\033[01;91m\033[0m\033[01;91mRed
 	\033[00;96m[\033[02;94m002\033[00;96m] \033[02;96m->\033[0m White\033[02;92m|\033[01;92mGreen
 	\033[00;96m[\033[02;94m003\033[00;96m] \033[02;96m-> Custom
@@ -29,30 +29,30 @@ custom
 main
 
 sub_user_host() {
-	echo -n "\033[02;92mUsuario: \033[01;96m"
+	echo -ne "\033[02;92mUsuario: \033[01;96m"
 	read usuario
-	echo -n "\033[02;92mHostname: \033[01;96m"
+	echo -ne "\033[02;92mHostname: \033[01;96m"
 	read hostname
 }
 sub_user() {
-	echo -n "\033[02;92mUsuario: \033[01;96m"
+	echo -ne "\033[02;92mUsuario: \033[01;96m"
 	read usuario
 }
 sub_host() {
-	echo -n "\033[02;92mHostname: \033[01;96m"
+	echo -ne "\033[02;92mHostname: \033[01;96m"
 	read hostname
 }
 
 enter_return() {
-	echo "\033[02;96mEnter pra retornar ao menu"
+	echo -ne "\033[02;96mEnter pra retornar ao menu"
 	read enter
-	sh $HOME/Shell/.custom.sh
+	bash $HOME/Shell/.custom.sh
 }
 
 msg() {
 	echo "Abra uma nova aba pra visualizar a saida da nova configuraçâo da PS1"
 }
-echo -n "\033[00;96mShell->\033[02;92m";read r
+echo -ne "\033[00;96mShell->\033[02;92m";read r
 
 
 case $r in
