@@ -1,0 +1,22 @@
+# por oliver, de dezembro
+# andrax-os
+#
+echo -e "\033[01;92mAdvanced Penetration Testing Platform Developed For Android Smartphones\n"
+
+echo -e "The Cracker Technology - Advanced Pentest"
+echo -e "whoami : " $(whoami)
+echo ""
+
+echo -e "\033[00;91m[ \033[00;93m3318 \033[00;91m] \033[01;92mTools in ANDRAX... Wow, we really rock\n"
+
+echo "let's start hacking."
+export PS1="\[\033[01;92m\]╭──\[\033[00;91m\]anemonas\[\033[00;96m\]@\[\033[00;92m\]ANDRAX-Hackers-Platform \[\033[01;94m\]\W \[\033[0m\][\[\033[01;91m\]\A\[\033[0m\]]\[\033[01;92m\]\n╰──\[\033[01;91m\]➤ \[\033[0m\]"
+
+alias ls='ls --color=auto'
+#alias dir='dir --color=auto'
+##alias vdir='vdir --color=auto'
+alias grep='grep --color=auto'
+alias fgrep='fgrep --color=auto'
+alias egrep='egrep --color=auto'
+alias diff='diff --color=auto'
+alias ip='ip --color=auto'

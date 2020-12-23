@@ -1,1 +1,0 @@
-PS1="$(tput setaf 1)?$(tput setaf 4)?$(tput setaf 3)? $(tput sgr0)"
