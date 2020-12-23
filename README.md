@@ -19,10 +19,10 @@ Consulte a lista de ajuda com a opçâo -h/--help
 >./clis.sh --user [NOVO_USUARIO]
 ![Image description](https://github.com/Olliv3r/clis/blob/master/src/images/user.png)
 
-## Configuração aplicada tipo andrax:
+## Configuração aplicada tipo ~~andrax~~:
 ![Image description](https://github.com/Olliv3r/clis/blob/master/src/images/user_applyng.png)
 
-## Removendo a configutaração:
+## Removendo a configuração:
 >./clis.sh --undo
 ![Image description](https://github.com/Olliv3r/clis/blob/master/src/images/removing.png)
 
