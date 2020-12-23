@@ -4,6 +4,7 @@ personalização do shell bash
 Consulte a lista de ajuda com a opçâo -h/--help
 
 ## help:
+> ./clis.sh --help
 ![Image description](https://github.com/Olliv3r/clis/blob/master/src/images/help.png)
 
 ## listagem de sistemas disponíveis:
