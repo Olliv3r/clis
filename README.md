@@ -6,7 +6,7 @@ Consulte a lista de ajuda com a opçâo -h/--help
 ## help:
 ![Image description](https://github.com/Olliv3r/clis/blob/master/src/images/help.png)
 
-## listagem de sistema disponíveis:
+## listagem de sistemas disponíveis:
 ![Image description](https://github.com/Olliv3r/clis/blob/master/src/images/list.png)
 
 ## Aplicando configuração tipo andrax em ambiente termux:
@@ -18,7 +18,7 @@ Consulte a lista de ajuda com a opçâo -h/--help
 ## Configuração aplicada tipo andrax:
 ![Image description](https://github.com/Olliv3r/clis/blob/master/src/images/user_applyng.png)
 
-## Remevendo a configutaração:
+## Removendo a configutaração:
 ![Image description](https://github.com/Olliv3r/clis/blob/master/src/images/removing.png)
 
 ## Sistema restaurado:
