@@ -23,6 +23,7 @@ desfazer=0		# Deve desfazer? (desligada por padrão)
 listar=0		# Deve listar? (desligada por padrão)
 executar=0		# Deve executar o programa? (desligada por padrão)
 usuario=0		# Deve alterar o usuario? (desligada por padrão)
+renomear=0		# Deve renomear o arquivo? (desligado por padrâo)
 system_n=""		# Deve ser qual distribuição linux? (vaziu por padrão)
 diretorio_n=""		# Deve ser qual diretório? (vaziu por padrão)
 
@@ -48,6 +49,7 @@ diretorio_debian=${dir_apt}
 configNova=${new_name}
 chave_n=1
 sub_diretorio_local=conf
+text_file_not_found="[${red}!${white}] Nâo foi possível encontrar nenhum arquivo com o nome .bash_login, tente aplicar a configuraçâo primeiro para que o arquivo tenha seu nome restaurado ou renomear manualmente o arquivo."
 
 # Modo de uso
 modo_uso="
@@ -58,6 +60,7 @@ Uso: $(basename "$0") [OPÇÔES]
    -l, --list		Mostra todos os sistemas operacionais linux que contém a configuração
    -c, --clis		Executa o programa clis (útil para se livrar das opçôes e argumentos do programa)
    -U, --user USER	A referência USER é o nome desejado que ficará no lugar do usuário antigo no arquivo.bash_login (Exem: de root@kali para joao@kali)
+   -r, --rename-file	Alterar o nome do arquivo .bash_login caso o sistema nâo execute suas configuraçôes
 
    -h, --help		Mostra esta tela de ajuda e sai
    -V, --version	Mostra a versão mais recente do programa e sai
@@ -116,8 +119,12 @@ do
 			# .env.user.ini mais recente #
 			echo ${usuario_argumento} > ${diretorio_local}/.env.user.ini
 			usuario_novo_env_user_ini=$(cat ${diretorio_local}/.env.user.ini)
-
 			;;
+
+		-r | --rename-file)
+			renomear=1
+		;;
+
 		-h | --help)
 			echo "$modo_uso" # Imprime tela de ajuda
 			exit 0		 # Status de saida (0)
@@ -233,15 +240,21 @@ deletaArquivosEnv() {
 		fi
 	done
 
-	if test -e ${arquivo_ini} && test -f ${arquivo_ini}
+	# Verifica se um ou outro arquivo exista
+	if test -e ${HOME}/.bash_login
 	then
-		echo "[+] Removendo: ${arquivo_ini}"
-		rm ${arquivo_ini}
-		exit 0
-	elif test ! -e ${arquivo_ini}
+		arquivo_ini=${arquivo_ini}
+	elif test -e ${HOME}/.bashrc
 	then
+		arquivo_ini=${HOME}/.bashrc
+	else
 		echo "[!] Todos os arquivos foram removidos"
+		exit 0
 	fi
+		
+	echo "[+] Removendo: ${arquivo_ini}"
+	rm ${arquivo_ini}
+	exit 0
 }
 
 deletarConfig() {
@@ -372,6 +385,21 @@ comandoAltera() {
 	exit 1
 }
 
+alteraNomeArquivo() {
+	# Verificar se existe
+	if test -e ${arquivo_ini}
+	then
+		echo "Renomeando de ${arquivo_ini} para .bashrc"
+		mv ${arquivo_ini} ${HOME}/.bashrc
+		sleep 1
+
+	elif test ! -e ${arquivo_ini}
+	then
+		echo -e "${text_file_not_found}"
+		exit 1
+	fi
+}
+
 # Processamento
 
 if test "$fazer" == "$chave_n"
@@ -389,6 +417,9 @@ then
 elif test "$usuario" == "$chave_n"
 then
 	alteraUsuario
+elif test "$renomear" == "$chave_n"
+then
+	alteraNomeArquivo
 fi
 
 # Essa parte é para ser executado por usuários que tem preguiça de passar opçôes e argumentos para o programa 'clis.sh' hehehe
@@ -479,29 +510,37 @@ listarSistemas() {
 }
 # Alterar Usuario do Sistema
 altUsuarioSistema() {
-	echo "obs! digite 'back' para voltar a tela inicial"
-	echo -n "Novo nome de usuário: ";read novo_nome
+	if test -e ${arquivo_ini}
+		then
+
+		echo "obs! digite 'back' para voltar a tela inicial"
+		echo -n "Novo nome de usuário: ";read novo_nome
 	
-	if test -z "${novo_nome}"
+		if test -z "${novo_nome}"
+		then
+			echo "Campo necessário !"
+			sleep 0.5
+			altUsuarioSistema
+		fi
+		if test "${novo_nome}" == "back"
+		then
+			entrada
+		fi
+
+		# usuario antigo do arquivo .env.user.ini mais antigo
+		usuario_antigo_env_user_ini=$(cat ${diretorio_local}/.env.user.ini)
+		echo "${novo_nome}" > ${diretorio_local}/.env.user.ini
+	
+		# usuario novo do arquivo .env.user.ini mais recente
+		usuario_novo_env_user_ini=$(cat ${diretorio_local}/.env.user.ini)
+
+		alteraUsuario
+		comandoAltera
+	elif test ! -e ${arquivo_ini}
 	then
-		echo "Campo necessário !"
-		sleep 0.5
-		altUsuarioSistema
+		echo -e "${text_file_not_found}"
+		exit 1
 	fi
-	if test "${novo_nome}" == "back"
-	then
-		entrada
-	fi
-
-	# usuario antigo do arquivo .env.user.ini mais antigo
-	usuario_antigo_env_user_ini=$(cat ${diretorio_local}/.env.user.ini)
-	echo "${novo_nome}" > ${diretorio_local}/.env.user.ini
-
-	# usuario novo do arquivo .env.user.ini mais recente
-	usuario_novo_env_user_ini=$(cat ${diretorio_local}/.env.user.ini)
-
-	alteraUsuario
-	comandoAltera
 }
 alteraUsuarioSistema() {
 	if test -e ${diretorio_local}/.env.user.ini
@@ -559,6 +598,7 @@ entrada() {
 	3) Defazer a configuração (Deleta os arquivos: .bash_login, .system)
 	4) Alterar nome de usuário do sistema
 	5) Listar todos os sistemas operacionais disponíveis
+	6) Alterar o nome do arquivo .bash_login
 	v) Versão do programa
 	x) Sair do programa clis
 	h) Histótico
@@ -606,6 +646,9 @@ entrada() {
 		5)
 			fazerList
 			voltar
+			;;
+		6)
+			alteraNomeArquivo
 			;;
 		v | V)
 			versao
