@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 # clis.sh
 #
 # Aplica configuração
@@ -13,8 +13,9 @@
 # Versão 0.0.7: Configuração UBUNTU adicionada
 # Versão 0.0.8: Interação de janelas adicionada,
 #		útil para evitar as opçôes do programa
+# Versão 0.0.9: Adicionado configuraçôes para o usuário administrativo
 #
-# Por oliver, 13 de dezembro
+# Por oliver, 13 de dezembro 2020
 #
 
 # Chaves
@@ -26,6 +27,8 @@ usuario=0		# Deve alterar o usuario? (desligada por padrão)
 renomear=0		# Deve renomear o arquivo? (desligado por padrâo)
 system_n=""		# Deve ser qual distribuição linux? (vaziu por padrão)
 diretorio_n=""		# Deve ser qual diretório? (vaziu por padrão)
+diretorio_root=0	# Deve ser root? (zero representa desligado)
+arquivo_deleta=0	# Deve deletar? (zero representa desligado)
 
 # Cores
 white="\e[0m"		# Cor branca (normal)
@@ -61,6 +64,8 @@ Uso: $(basename "$0") [OPÇÔES]
    -c, --clis		Executa o programa clis (útil para se livrar das opçôes e argumentos do programa)
    -U, --user USER	A referência USER é o nome desejado que ficará no lugar do usuário antigo no arquivo.bash_login (Exem: de root@kali para joao@kali)
    -r, --rename-file	Alterar o nome do arquivo .bash_login caso o sistema nâo execute suas configuraçôes
+   -a, --add		Adicionar arquivo .bash_login ao diretório root (.suroot)
+   -d, --delete		Deleta arquivo de configuração do root
 
    -h, --help		Mostra esta tela de ajuda e sai
    -V, --version	Mostra a versão mais recente do programa e sai
@@ -124,7 +129,12 @@ do
 		-r | --rename-file)
 			renomear=1
 		;;
-
+		-a | --add)
+			diretorio_root=1
+		;;
+		-d | --delete)
+			arquivo_deleta=1
+		;;
 		-h | --help)
 			echo "$modo_uso" # Imprime tela de ajuda
 			exit 0		 # Status de saida (0)
@@ -400,6 +410,55 @@ alteraNomeArquivo() {
 	fi
 }
 
+adicionaArquivoParaRoot() {
+	# Verificação de root
+	if test $(id -u) != 0
+	then
+		echo "Permissão negada, és root?"
+		exit 1
+	fi
+	if test -d ~
+	then
+		if test -e ~/../.bash_login
+		then
+			cat ~/../.bash_login > ${HOME}/.bashrc
+			# Alterar o usuário padrão para o root
+			usuario_comum=$(cat ~/../clis/src/.env.user.ini)
+			usuario_administrativo=$(whoami)
+			sed -i "s/$usuario_comum/$usuario_administrativo/g" ~/.bashrc
+			echo "[+] Bem sucedido"
+			exit 0
+		elif test ! -e ~/../.bash_login
+		then
+			echo "Nenhum arquivo necessário encontrado, Aplique a configuração pelo menos uma vez para concluir o processo"
+			exit 1
+		fi
+	elif test ! -d ~
+	then
+		echo "Ouve um problema desconhecido, contate o autor @Oliver_py no telegram para mais informaçôes"
+		exit 1
+	fi
+}
+
+deletarArquivoRoot() {
+	# Verificação de root
+	if test $(id -u) != 0
+	then
+		echo "Permissão negada, és root?"
+		exit 1
+	fi
+	if test -e ~/.bashrc
+	then
+		sudo rm ~/.bashrc
+		echo "[+] Bem sucedido"
+		exit 0
+	elif test ! -e ~/.bashrc
+	then
+		echo "Arquivo não existe"
+		exit 1
+	fi
+}
+
 # Processamento
 
 if test "$fazer" == "$chave_n"
@@ -420,6 +479,12 @@ then
 elif test "$renomear" == "$chave_n"
 then
 	alteraNomeArquivo
+elif test "$diretorio_root" == "$chave_n"
+then
+	adicionaArquivoParaRoot
+elif test "$arquivo_deleta" == "$chave_n"
+then
+	deletarArquivoRoot
 fi
 
 # Essa parte é para ser executado por usuários que tem preguiça de passar opçôes e argumentos para o programa 'clis.sh' hehehe
