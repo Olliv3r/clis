@@ -167,6 +167,11 @@ configExistente() {
 }
 
 aplicaConfig() {
+	if test ! ${diretorio_local}/${system}
+	then
+		echo "Arquivo não encontrado"
+		exit 1
+	fi
 	cat ${diretorio_local}/${system} > ${arquivo_ini}
 	echo "${texto_config}"
 	sleep 1
