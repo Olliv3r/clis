@@ -464,11 +464,70 @@ deletarArquivoRoot() {
 	fi
 }
 
+# Backup de arquivos
+backup() {
+    # Resulta Verdadeiro somente se os dois arquivos (.bash_login e .bashrc) existirem
+    if test -e ${HOME}/".bash_login" && test -e ${HOME}/.bashrc
+    then
+	echo "[+] Criando copia de arquivos"
+	sleep 1
+	cp ${HOME}/".bash_login" ${diretorio_local}/backups
+        cp ${HOME}/".bashrc" ${diretorio_local}/backups
+	# Verifica se a copia foi bem sucedida
+	if test -e ${diretorio_local}/backups/".bash_login" && test -e ${diretorio_local}/backups/".bashrc"
+	then
+	    echo "[✓] Copia de arquivos criada com sucesso"
+	    sleep 1
+	# Verifica se a copia foi mau sucedida
+    	elif test ! -e ${diretorio_local}/backups/".bash_login" && test ! -e ${diretorio_local}/backups/".bashrc"
+	then
+	    echo "[!] Erro ao criar copia de arquivos"
+	fi
+    # Resulta Verdadeiro somente se o arquivo (.bash_login) existir
+    elif test -e ${HOME}/".bash_login"
+    then
+	echo "[+] Criando copia de arquivo"
+	sleep 1
+	cp ${HOME}/".bash_login" ${diretorio_local}/backups/
+	# Verifica se a copia foi bem sucedida
+	if test -e ${diretorio_local}/backups/".bash_login"
+	then
+	    echo "[✓] Copia de arquivo criada com sucesso"
+	# Verifica se a copia foi mau sucedida
+	elif test ! -e ${diretorio_local}/backups/".bash_login"
+	then
+	    echo "[!] Erro ao criar copia de arquivo"
+	fi
+    # Resulta Verdadeiro somente se o arquivo (.bashrc) existir
+    elif test -e ${HOME}/".bashrc"
+    then
+	echo "[+] Criando copia de arquivo"
+	sleep 1
+	cp ${HOME}/".bashrc" ${diretorio_local}/backups/
+	# Verifica se a copia foi bem sucedida
+	if test -e ${diretorio_local}/backups/".bashrc"
+	then
+	    echo "[✓] Copia de arquivo criada com sucesso"
+	# Verifica se a copia foi mau sucedida
+	elif test ! -e ${diretorio_local}/backups/".bashrc"
+	then
+	    echo "[!] Erro ao criar copia de arquivo"
+	fi
+
+    # Resulta Verdadeiro somente se os dois arquivos (.bash_login e .bashrc) não existirem
+    elif test ! -e ${HOME}/".bash_login" && test ! -e ${HOME}/.bashrc
+    then
+	echo "[!] Arquivo (s) de configuração indisponível"
+    fi
+
+}
+
 
 # Processamento
 
 if test "$fazer" == "$chave_n"
 then
+	backup
 	system_default=$(cat ${diretorio_local}/.env.system.ini)
 	fazerConfig
 
