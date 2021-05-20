@@ -268,8 +268,7 @@ deletaArquivosEnv() {
 	fi
 		
 	echo "[+] Removendo: ${arquivo_ini}"
-	rm ${arquivo_ini}
-	toBackupRestory
+	rm "$arquivo_ini"
 	exit 0
 }
 
@@ -465,49 +464,11 @@ deletarArquivoRoot() {
 	fi
 }
 
-# backup de arquivos
-
-# backup_copy
-function backup_copy() {
-	if test ${HOME}/.bash_login
-	then
-		cp ${HOME}/.bash_login ${diretorio_local}/backups
-	else
-		echo "O arquivo pra backup não existe"
-		exit 1
-	fi
-}
-# backup_restory
-function backup_restory() {
-	if test ${diretorio_local}/backups/.bash_login
-	then
-		cp ${diretorio_local}/backups/.bash_login ${HOME}
-	else
-		echo "O arquivo de backup não existe"
-		exit 1
-	fi
-}
-
-# toBackupCopy()
-function toBackupCopy() {
-	if test ${diretorio_local}/backups
-	then
-		backup_copy
-	fi
-	mkdir ${diretorio_local}/backups
-	backup_copy
-}
-
-# toBackupRestory
-function toBackupRestory() {
-	backup_restory
-}
 
 # Processamento
 
 if test "$fazer" == "$chave_n"
 then
-	toBackupCopy
 	system_default=$(cat ${diretorio_local}/.env.system.ini)
 	fazerConfig
 
